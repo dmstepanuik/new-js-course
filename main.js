@@ -273,21 +273,433 @@
 
 // ==== Классы. Конструкторы объектов ======
 
-class Person {
-  constructor(userName, age, isMarried) {
-    this.userName = userName;
-    this.age = age;
-    this.isMarried = isMarried;
-  }
+// class Person {
+//   constructor(userName, age, isMarried) {
+//     this.userName = userName;
+//     this.age = age;
+//     this.isMarried = isMarried;
+//   }
 
-  sayHi(name) {
-    console.log(`Hello,${name} my name is ${this.userName}`);
-  }
-}
+//   sayHi(name) {
+//     console.log(`Hello,${name} my name is ${this.userName}`);
+//   }
+// }
 
-const person1 = new Person('Mark', 30, false);
-const person2 = new Person('David', 40, true);
+// const person1 = new Person('Mark', 30, false);
+// const person2 = new Person('David', 40, true);
 
-console.log(person1);
-console.log(person2);
-person2.sayHi('David');
+// console.log(person1);
+// console.log(person2);
+// person2.sayHi('David');
+
+// ================== Выбор DOM элементов ================
+
+// Выбор одного элемента  DOM  по селектору
+
+// document.querySelector('selector');
+
+// const heading2 = document.querySelector('h2').classList.add('red');
+// heading2.classList.add('red');
+
+// change collection elements
+
+// const headings = document.querySelectorAll('h2');
+// console.log(headings);
+
+// // headings.classList.add('red-text');
+
+// for (let heading of headings) {
+//   console.log(heading);
+//   heading.classList.add('red-text');
+// }
+
+// const paragraphs = document.querySelectorAll('p');
+// // for (let p of paragraphs) {
+// //   p.classList.add('green-text');
+// // }
+
+// //
+
+// ============== Work with CSS class=====================
+
+// const heading = document.querySelector('h2');
+// // console.log(heading);
+
+// // heading.classList.add('red-text');
+// // heading.classList.remove('red-text');
+
+// // // heading.classList.toggle('green-text');
+// // // heading.classList.toggle('green');
+
+// heading.classList.contains('green');
+
+// ==================== Work with attributes ===============
+
+// const img = document.querySelector('#logo');
+
+// img.setAttribute('src', './img/php.png');
+// img.setAttribute('width', '200');
+
+// img.src = './img/js.png';
+
+// const button = document.querySelector('#button');
+
+// button.setAttribute('value', 'Send');
+
+// button.value = 'Text for button';
+
+// ====================== Work with listener events================
+
+// const button = document.querySelector('#button');
+
+// const img = document.querySelector('#logo');
+
+// button.value = 'Delete';
+
+// button.addEventListener('click', function () {
+//   console.log('Click!');
+//   img.remove();
+// });
+
+// // button.onClick = function () {
+// //   console.log('Click!');
+// //   img.remove();
+// // };
+
+// ====================== Work with listener events part 2================
+
+// const inputText = document.querySelector('#input-text');
+
+// const textBlock = document.querySelector('#text-block');
+
+// inputText.addEventListener('input', inputHandler);
+
+// function inputHandler() {
+//   console.log(inputText.value);
+//   textBlock.innerText = inputText.value;
+// }
+
+// ===================== Object event ======================
+
+// const list = document.querySelector('#list');
+
+// list.addEventListener('click', function (e) {
+//   // console.log(this);
+//   // console.log(e);
+//   console.log(e.target);
+// });
+
+// ======================= Work with elements =================
+
+// change a container
+
+const container = document.querySelector('#elementsContainer');
+
+// create header
+const newHeader = document.createElement('h1');
+
+newHeader.innerText = 'New Header';
+
+container.append(newHeader);
+
+// ========== Copy header ========================================
+
+// const mainHeader = document.querySelector('header');
+// const headerCopy = mainHeader.cloneNode(true);
+
+// container.append(headerCopy);
+
+// ===================== вставка разметки через строки ==========
+
+// const htmlExample = '<h2> Header one else </h2>';
+// container.insertAdjacentHTML('beforeend', htmlExample);
+
+// const title = 'Text of header';
+// const htmlExample = `<h2>${title}</h2>`;
+// container.insertAdjacentHTML('beforeend', htmlExample);
+
+// ===================== ToDO list tasks ==========================
+
+// const todoList = document.querySelector('#todo-list');
+// const todoForm = document.querySelector('#todo-form');
+// const todoInput = document.querySelector('#todo-input');
+
+// // todoForm.addEventListener('submit', formHand);
+
+// // function formHand(e) {
+// //   e.preventDefault();
+
+// const taskText = todoInput.value;
+
+// // const li = `<li>${taskText} </li>`;
+
+// // }
+
+// const newTask = document.createElement('li');
+// newTask.innerText = taskText;
+
+// todoList.append(newTask);
+
+// // todoList.insertAdjacentHTML('beforeend', li);
+
+// todoInput.value = '';
+
+// // ================= setInterval =======================
+
+// const timerIntervalID = setInterval(function () {
+//   console.log('Fired!');
+// }, 1000);
+
+// console.log(timerIntervalID);
+
+// // clearInterval(timerIntervalID)
+
+// // =============== setTimeout =================================
+
+// const timerID = setInterval(function () {
+//   console.log('setInterval Fired!');
+// }, 1000);
+
+// setTimeout(function () {
+//   clearInterval(timerID);
+// }, 10000);
+
+// ============================  ====================================
+
+// const counterElement = document.querySelector('#counter');
+
+// let counter = 0;
+// let timerID;
+
+// // setInterval(function () {
+// //   counter += 1;
+
+// //   counterElement.innerText = counter;
+// // }, 1000);
+
+// // start
+// const btnStart = document.querySelector('#start');
+// btnStart.onclick = function () {
+//   timerID = setInterval(function () {
+//     counter += 1;
+//     counterElement.innerText = counter;
+//   }, 1000);
+// };
+
+// // pause
+
+// const btnPause = document.querySelector('#pause');
+// btnPause.onclick = function () {
+//   clearInterval(timerID);
+// };
+
+// // reset
+
+// const btnReset = document.querySelector('#reset');
+// btnReset.onclick = function () {
+//   counter = 0;
+//   counterElement.innerText = counter;
+//   clearInterval(timerID);
+// };
+
+// ============================== Callback. Callback hell ======================
+
+// setTimeout(function () {
+//   console.log('Step 1');
+//   setTimeout(function () {
+//     console.log('Step 2');
+//     setTimeout(function () {
+//       console.log('Step 3');
+//     }, 1000);
+//   }, 1500);
+// }, 2000);
+
+// function checkRooms() {
+//   setTimeout(function () {
+//     console.log('Check rooms in hotel...');
+//     const availableRooms = false;
+
+//     if (availableRooms) {
+//       console.log('The rooms correct');
+//       console.log('we are go!');
+//     } else {
+//       console.log('The rooms are not');
+//       console.log("We aren't go");
+//     }
+//   }, 1000);
+// }
+
+// checkRooms();
+
+// function checkRooms(success, failed) {
+//   setTimeout(function () {
+//     console.log('Check rooms in hotel...');
+//     const availableRooms = true;
+
+//     if (availableRooms) {
+//       let message = 'We have the rooms';
+//       success(message);
+//     } else {
+//       let message = "We haven't the rooms";
+//       failed(message);
+//     }
+//   }, 2000);
+// }
+
+// function checkTickets(message, success, failed) {
+//   setTimeout(function () {
+//     console.log('------function checkTickets------');
+//     console.log('Ответ на предыдущем шаге:', message);
+
+//     console.log('Check avian tickets');
+
+//     const availableTickets = true;
+
+//     if (availableTickets) {
+//       let message = 'OK';
+//       success(message);
+//     } else {
+//       let message = 'failed';
+//       failed(message);
+//     }
+//   }, 500);
+// }
+
+// function cancelVacation(message) {
+//   console.log('---cancelVacation----');
+//   console.log('Ответ на предыдущем шаге:', message);
+//   console.log('Отпуск отменяется...');
+// }
+
+// function submitVacation(message) {
+//   console.log('---submitVacation----');
+//   console.log('Ответ на предыдущем шаге:', message);
+//   console.log('Едим в отпуск ...');
+// }
+
+// checkRooms(
+//   function (messageFromCheckRooms) {
+//     checkTickets(
+//       messageFromCheckRooms,
+//       function (messageFromCheckTickets) {
+//         submitVacation(messageFromCheckTickets);
+//       },
+//       function (messageFromCheckTickets) {
+//         cancelVacation(messageFromCheckTickets);
+//       }
+//     );
+//   },
+//   function (messageFromCheckRooms) {
+//     cancelVacation(messageFromCheckRooms);
+//   }
+// );
+
+// ==================== Promise ========================
+
+// const myPromise = new Promise(function (resolve, reject) {
+//   console.log('Promise created');
+
+//   setTimeout(function () {
+//     const response = true;
+//     if (response) {
+//       let message = 'Success';
+//       resolve(message);
+//     } else {
+//       let message = 'Failed';
+//       reject(message);
+//     }
+//   }, 1500);
+// });
+// myPromise
+//   .then(function (data) {
+//     return new Promise(function (resolve, rej) {
+//       setTimeout(() => {
+//         console.log('Then 1');
+//         console.log('Success');
+
+//         const response = true;
+//         if (response) {
+//           resolve('Data from then 1');
+//         } else {
+//           reject('Data from then 1');
+//         }
+
+//         resolve();
+//       }, 1000);
+//     });
+//   })
+//   .then(function (data) {
+//     setTimeout(() => {
+//       console.log('Then 2');
+//     }, 500);
+//   })
+//   .catch(function (data) {
+//     console.log('catch');
+//     console.log(data);
+//   });
+
+// ============== Цепочка promise =================
+
+// const checkRooms = new Promise(function (res, rej) {
+//   setTimeout(function () {
+//     console.log('Check room numbers.....');
+//     const availableRooms = false;
+//     console.log(availableRooms);
+
+//     if (availableRooms) {
+//       res('The rooms number ok!');
+//     } else {
+//       rej('The room numbers none');
+//     }
+//   }, 1500);
+// });
+
+// checkRooms
+//   .then(function (data) {
+//     return new Promise(function (res, rej) {
+//       setTimeout(() => {
+//         console.log('Check the tickets ');
+//         const availableTickets = true;
+//       }, 1000);
+//     });
+//   })
+//   .catch(function (data) {
+//     console.log('--catch--');
+//     console.log('come back step', data);
+//     console.log('not ok!');
+//   });
+
+// ====== async function =============
+
+// function promiseFunction() {
+//   return new Promise(function (res, rej) {
+//     setTimeout(() => {
+//       const result = true;
+//       if (result) {
+//         res('Done!');
+//       } else {
+//         rej('Fail!');
+//       }
+//     }, 500);
+//   });
+// }
+
+// async function startPromise() {
+//   const result = await promiseFunction();
+//   console.log(result);
+// }
+// startPromise();
+
+// ============ database from server =================
+
+// async function getCurrencies() {
+//   const url =
+//     'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
+
+//   const res = await fetch(url);
+//   const data = await res.json();
+
+//   console.log(data);
+// }
+
+// getCurrencies();
